@@ -14,3 +14,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     testImplementation(kotlin("test"))
 }
+
+tasks.test {
+    useJUnitPlatform()
+}
