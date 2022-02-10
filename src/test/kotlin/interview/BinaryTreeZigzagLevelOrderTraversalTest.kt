@@ -1,20 +1,23 @@
 package interview
 
+// 103. Binary Tree Zigzag Level Order Traversal
+// https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
 
-class ZigzagLevelOrderTest {
+class Node(var value: Int) {
+    var left: Node? = null
+    var right: Node? = null
+}
+
+class BinaryTreeZigzagLevelOrderTraversalTest {
 
     val a = Node(1)
     val b = Node(2)
     val c = Node(3)
     val d = Node(4)
     val e = Node(5)
-
-    class Node(var value: Int) {
-        var left: Node? = null
-        var right: Node? = null
-    }
 
     private fun zigzagLevelOrder(node: Node): List<List<Int>> {
         val result: MutableList<MutableList<Int>> = arrayListOf()
