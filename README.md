@@ -9,6 +9,7 @@
 | 48  | [Rotate Image](https://leetcode.com/problems/rotate-image/)                                                               |          |            |
 | 102 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)                     |          |            |
 | 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)       |          |            |
+| 105 | [ConstructBinaryTreePreorderInorderTest](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)                     |          |            |
 | 116 | [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) |          |            |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/)                                                               |          |            |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/)                                                     |          |            |

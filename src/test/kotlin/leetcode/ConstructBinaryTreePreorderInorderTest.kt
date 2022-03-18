@@ -6,11 +6,27 @@ import java.lang.Integer.max
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
+// 105. Construct Binary Tree from Preorder and Inorder Traversal
 // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
 @DisplayName("Construct Binary Tree from Preorder and Inorder Traversal")
 class ConstructBinaryTreePreorderInorderTest {
-    data class Node<T>(val value: T, var left: Node<T>? = null, var right: Node<T>? = null)
+
+    data class Node<T>(
+        val value: T,
+        var left: Node<T>? = null,
+        var right: Node<T>? = null
+    )
+
+    private fun <T> constructTree(preorder: List<T>, inorder: List<T>): Node<T>? {
+        if (preorder.isEmpty() || inorder.isEmpty()) return null
+
+        val root = Node(preorder.first())
+        val mid = inorder.indexOf(preorder.first())
+        root.left = constructTree(preorder.subList(1, mid + 1), inorder.subList(0, mid))
+        root.right = constructTree(preorder.subList(mid + 1, preorder.size), inorder.subList(mid + 1, inorder.size))
+        return root
+    }
 
     private val preOrder = listOf(3, 9, 20, 15, 7)
     private val inOrder = listOf(9, 3, 15, 20, 7)
@@ -26,16 +42,13 @@ class ConstructBinaryTreePreorderInorderTest {
 
     @Test
     fun `test depth`() {
-        val depth = constructTree(preOrder, inOrder)!!.depth()
-        assertEquals(3, depth)
-
-    }
-
-    private fun <T> Node<T>.depth(depth: Int = 1): Int {
-        return max(
+        fun <T> Node<T>.depth(depth: Int = 1): Int = max(
             this.left?.depth(depth + 1) ?: depth,
             this.right?.depth(depth + 1) ?: depth
         )
+
+        val depth = constructTree(preOrder, inOrder)!!.depth()
+        assertEquals(3, depth)
     }
 
     private fun <T> Node<T>.treeToList(): List<T?> {
@@ -56,16 +69,5 @@ class ConstructBinaryTreePreorderInorderTest {
     @Test
     fun `Should min to -1`() {
         assertContentEquals(listOf(-1), constructTree(listOf(-1), listOf(-1))!!.treeToList())
-    }
-
-    fun <T> constructTree(preorder: List<T>, inorder: List<T>): Node<T>? {
-        if (preorder.isEmpty() || inorder.isEmpty()) return null
-
-        val root = Node(preorder.first())
-        val mid = inorder.indexOf(preorder.first())
-        root.left = constructTree(preorder.subList(1, mid + 1), inorder.subList(0, mid))
-        root.right = constructTree(preorder.subList(mid + 1, preorder.size), inorder.subList(mid + 1, inorder.size))
-
-        return root
     }
 }
