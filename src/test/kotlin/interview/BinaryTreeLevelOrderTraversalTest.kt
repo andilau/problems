@@ -6,12 +6,13 @@ import kotlin.test.assertContentEquals
 // 102. Binary Tree Level Order Traversal
 // https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-class TreeNode(var value: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
-}
-
 class BinaryTreeLevelOrderTraversalTest {
+
+    class TreeNode(var value: Int) {
+        var left: TreeNode? = null
+        var right: TreeNode? = null
+    }
+
     private val root = TreeNode(5)
 
     private fun levelOrder(root: TreeNode?): List<List<Int>> {
