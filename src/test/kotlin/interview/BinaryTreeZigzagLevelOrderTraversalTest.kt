@@ -6,12 +6,12 @@ package interview
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
 
-class Node(var value: Int) {
-    var left: Node? = null
-    var right: Node? = null
-}
-
 class BinaryTreeZigzagLevelOrderTraversalTest {
+
+    class Node(var value: Int) {
+        var left: Node? = null
+        var right: Node? = null
+    }
 
     val a = Node(1)
     val b = Node(2)
