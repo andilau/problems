@@ -1,3 +1,5 @@
+package leetcode
+
 import org.junit.jupiter.api.Test
 import kotlin.math.max
 import kotlin.test.assertEquals
