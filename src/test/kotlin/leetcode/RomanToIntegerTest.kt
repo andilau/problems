@@ -1,10 +1,16 @@
+package leetcode
+
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
 
+// 13. Roman to Integer
+// https://leetcode.com/problems/roman-to-integer/description/
+
 @DisplayName("Roman To Integer")
 class RomanToIntegerTest {
+
     /*
     * Symbol       Value
     I             1
@@ -14,7 +20,8 @@ class RomanToIntegerTest {
     C             100
     D             500
     M             1000
-    * */
+    */
+
     private fun String.romanToInt(): Int =
         map { roman ->
             when (roman) {
